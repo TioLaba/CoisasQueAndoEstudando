@@ -1,7 +1,9 @@
 from random import shuffle
 
 def gerar_lista():
-    # Gera uma lista com números de 1 a 999 e embaralha os números
+    ''' O bjetivo dessa lista gigante, é ser usada como meio de comparação
+    de eficiencia e tempo encontrado no arquivo calcular_tempo_execucao.py'''
+    # Gera uma lista com números de 1 a 50.000 e embaralha os números
     lista = [x for x in range(1, 50000)]  # Cria uma lista com números de 1 a 999
     shuffle(lista)  # Embaralha a lista para garantir uma ordem aleatória
     return lista  # Retorna a lista embaralhada
