@@ -1,10 +1,22 @@
-def receber_texto():
-    return input('Digite qualquer texto: ')
+from collections import Counter
+import re
 
-def separar_texto(texto):
-    return len(texto.split())
+def analisa_frequencia(texto: str, n: int) -> list:
+    # Remove pontuação e transforma tudo em minúsculas
+    limpar_pontuacao = re.sub(r'[^\w\s]', '', texto)
+    
+    # Divide o texto em palavras
+    palavras = limpar_pontuacao.lower().split()
+    
+    # Conta a frequência das palavras
+    contador = Counter(palavras)
+    
+    # Retorna as n palavras mais comuns, ordenadas pela frequência e alfabeticamente
+    return sorted(contador.items(), key=lambda item: (-item[1], item[0]))[:n]
 
-if __name__ == '__main__':
-    texto = receber_texto()
-    quantidade_palavras = separar_texto(texto)
-    print(f'O texto fornecido tem {quantidade_palavras} palavras')
+# Exemplo de uso
+texto_usuario = "Olá, mundo! Como Como Como vai? Tudo bem, e você?"
+resultado = analisa_frequencia(texto_usuario, 3)
+print(resultado)
+
+
