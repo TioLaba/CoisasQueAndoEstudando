@@ -4,6 +4,6 @@ from transformers import pipeline
 sentiment_analysis = pipeline("sentiment-analysis")
 
 # Testar com um exemplo
-resultado = sentiment_analysis("eu gosto de pizza!")
+resultado = sentiment_analysis("eu não gosto de pessoas !")
 print(resultado)  # Exibe o rótulo e a pontuação
 print('pronto')
